@@ -1,0 +1,9 @@
+.info {
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 2em;
+}
+
+.myOtherButton {
+  background-color: coral;
+}
