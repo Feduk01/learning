@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 #root {
-  max-width: 1280px;
+  max-width: 500px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -16,9 +16,10 @@
 }
 
 .App {
-  border: 1px solid black;
-  padding: 3em 6em;
-  min-width: 800px;
+  border-radius: 10px;
+  padding: 3em;
+  min-width: 450px;
+  background-color: rgb(49, 53, 62);
 }
 
 .App > * {
@@ -26,5 +27,5 @@
 }
 
 h1 {
-  font-size: 2.8em;
+  font-size: 2em;
 }
