@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#root {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.material-symbols-outlined {
+  font-size: 35px;
+  color: #659281;
+}
+
+.App {
+  border-radius: 10px;
+  padding: 3em;
+  min-width: 450px;
+  background-color: rgb(49, 53, 62);
+}
+
+.App > * {
+  margin: 30px 0;
+}
+
+h1 {
+  font-size: 2em;
+}

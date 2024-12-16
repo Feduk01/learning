@@ -1,0 +1,29 @@
+.formContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+.formContainer input {
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+/* .formContainer button {
+  margin-left: 20px;
+  cursor: pointer;
+  background-color: rgb(76, 156, 156);
+  font-size: 1.1rem;
+  text-align: center;
+} */
+
+/* .formContainer button:hover {
+  background-color: rgb(94, 194, 194);
+} */
+
+.formContainer input,
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+}
