@@ -1,19 +1,15 @@
 import store from './redux/store.js'
-import getCurrentTime from './utils/getCurrentTime.js'
+import { addCurrentTime, clearTimes } from './redux/actionCreators.js'
+console.log(store)
 
 const btn = document.getElementById('btn')
 btn.addEventListener('click', () => {
-  store.dispatch({
-    type: 'ADD_CURRENT_TIME',
-    payload: getCurrentTime(),
-  })
+  store.dispatch(addCurrentTime())
 })
 
 const clearBtn = document.getElementById('clear-btn')
 clearBtn.addEventListener('click', () => {
-  store.dispatch({
-    type: 'CLEAR_ALL_TIMES',
-  })
+  store.dispatch(clearTimes())
 })
 
 const timeList = document.getElementById('timeList')
@@ -21,6 +17,7 @@ const timeList = document.getElementById('timeList')
 store.subscribe(() => {
   timeList.innerHTML = ''
   const times = store.getState()
+  console.log(times)
   times.forEach((time) => {
     let li = document.createElement('li')
     li.innerText = time
