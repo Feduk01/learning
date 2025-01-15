@@ -9,3 +9,8 @@ export const deleteBook = (id) => ({
   type: actionTypes.DELETE_BOOK,
   payload: id,
 })
+
+export const toggleFavorite = (id) => ({
+  type: actionTypes.TOGGLE_BOOK,
+  payload: id,
+})
