@@ -1,12 +1,12 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
-  setTitleFilter,
-  selectTitleFilter,
   resetFilters,
-  selectAuthorFilter,
+  setTitleFilter,
   setAuthorFilter,
   setFavoriteFilter,
+  selectTitleFilter,
+  selectAuthorFilter,
   selectFavoriteFilter,
 } from '../../redux/slices/filterSlice'
 import './FIlter.css'
