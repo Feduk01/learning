@@ -6,11 +6,17 @@ import {
   selectTitleFilter,
   selectFavoriteFilter,
 } from '../../redux/slices/filterSlice'
-import { deleteBook, toggleFavorite } from '../../redux/books/actionCreators'
+import {
+  deleteBook,
+  toggleFavorite,
+  selectBooks,
+} from '../../redux/slices/booksSlice.js'
 import './BookList.css'
 
 function BookList() {
-  const books = useSelector((state) => state.books)
+  const books = useSelector(selectBooks)
+  console.log(books)
+
   const titleFilter = useSelector(selectTitleFilter)
   const authorFilter = useSelector(selectAuthorFilter)
   const favoriteFilter = useSelector(selectFavoriteFilter)
