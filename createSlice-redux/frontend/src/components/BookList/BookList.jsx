@@ -59,6 +59,22 @@ function BookList() {
     })
   }
 
+  const controlledBackground = (book) => {
+    if (!book.source) {
+      return { backgroundColor: '2px solid gray', color: 'gray' }
+    }
+    if (book.source === 'manual') {
+      return { border: '2px solid green', color: 'green' }
+    }
+    if (book.source === 'random') {
+      return { border: '2px solid violet', color: 'violet' }
+    }
+    if (book.source === 'API') {
+      return { border: '2px solid #FFBF00', color: '#FFBF00' }
+    }
+    return { border: '2px solid gray', color: 'gray' }
+  }
+
   return (
     <div className="app-block book-list">
       <h2>Book List</h2>
@@ -72,6 +88,17 @@ function BookList() {
                 {index + 1}. {highlightMatch(book.title, titleFilter)} by{' '}
                 <strong>{highlightMatch(book.author, authorFilter)}</strong>
                 {book.year ? ` (${book.year})` : ''}
+                <strong>
+                  <span
+                    style={{
+                      borderRadius: '3px',
+                      ...controlledBackground(book),
+                      padding: '3px',
+                      marginLeft: '5px',
+                      fontSize: '15px',
+                      textAlign: 'center',
+                    }}>{` the source is ${book.source}`}</span>
+                </strong>
               </div>
               <span onClick={() => handlerToggleFavorit(book.id)}>
                 {book.isFavorite ? (
