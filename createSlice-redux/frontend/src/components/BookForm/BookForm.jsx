@@ -5,6 +5,7 @@ import {
   fetchBook,
   clearBooks,
 } from '../../redux/slices/booksSlice.js'
+import { setError } from '../../redux/slices/errorSlice.js'
 import booksData from '../../data/books.json'
 import createBookWithId from '../../utils/createBookWithId.js'
 import './BookForm.css'
@@ -20,6 +21,8 @@ function BookForm() {
       dispatch(addBook(createBookWithId({ title, author }, 'manual')))
       setTitle('')
       setAuthor('')
+    } else {
+      dispatch(setError('YO!'))
     }
   }
 
@@ -30,7 +33,7 @@ function BookForm() {
   }
 
   const handleAddRandomBookViaAPI = () => {
-    dispatch(fetchBook())
+    dispatch(fetchBook('http://localhost:5000/random-book'))
   }
 
   const handleClear = () => {
@@ -63,7 +66,7 @@ function BookForm() {
         <button type="button" onClick={handleAddRandomBook}>
           Add Random
         </button>
-        <button onClick={handleAddRandomBookViaAPI}>
+        <button type="button" onClick={handleAddRandomBookViaAPI}>
           Add Random Book via API
         </button>
         <button onClick={handleClear}>Clear</button>
