@@ -95,8 +95,9 @@ function BookList() {
                       ...controlledBackground(book),
                       padding: '3px',
                       marginLeft: '5px',
-                      fontSize: '15px',
+                      fontSize: '12px',
                       textAlign: 'center',
+                      flexWrap: 'nowrap',
                     }}>{` the source is ${book.source}`}</span>
                 </strong>
               </div>

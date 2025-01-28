@@ -3,7 +3,10 @@ import axios from 'axios'
 import createBookWithId from '../../utils/createBookWithId'
 import { setError } from './errorSlice'
 
-const initialState = []
+const initialState = {
+  books: [],
+  isLoadingViaAPI: false,
+}
 
 export const fetchBook = createAsyncThunk(
   'book/fetchBook',
@@ -23,26 +26,32 @@ const booksSlice = createSlice({
   initialState: initialState,
   reducers: {
     addBook: (state, action) => {
-      return [...state, action.payload]
+      return { ...state, books: [...state.books, action.payload] }
     },
     deleteBook: (state, action) => {
-      return state.filter((book) => book.id !== action.payload)
+      return {
+        ...state,
+        books: state.books.filter((book) => book.id !== action.payload),
+      }
     },
     toggleFavorite: (state, action) => {
-      return state.map((book) =>
-        book.id === action.payload
-          ? { ...book, isFavorite: !book.isFavorite }
-          : book
-      )
+      return {
+        ...state,
+        books: state.books.map((book) =>
+          book.id === action.payload
+            ? { ...book, isFavorite: !book.isFavorite }
+            : book
+        ),
+      }
     },
     clearBooks: () => {
-      return initialState
+      return { ...initialState, books: [] }
     },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchBook.fulfilled, (state, action) => {
       if (action.payload.title && action.payload.author) {
-        state.push(createBookWithId(action.payload, 'API'))
+        state.books.push(createBookWithId(action.payload, 'API'))
       }
     })
   },
@@ -63,6 +72,6 @@ export const { addBook, deleteBook, toggleFavorite, clearBooks } =
 //   }
 // }
 
-export const selectBooks = (state) => state.books
+export const selectBooks = (state) => state.books.books
 
 export default booksSlice.reducer
